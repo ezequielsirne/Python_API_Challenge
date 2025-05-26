@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "Character API",
+    "_postman_id": "e1d40fae-5f1e-432c-9833-3cf9b7c9b0e1",
+    "description": "Colección para probar la API REST de personajes con FastAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Characters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/character/getAll",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["character", "getAll"]
+        }
+      }
+    },
+    {
+      "name": "Get Character by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/character/get/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["character", "get", "1"]
+        }
+      }
+    },
+    {
+      "name": "Add Character",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 1,\n    \"name\": \"Luke Skywalker\",\n    \"height\": 172,\n    \"mass\": 77,\n    \"hair_color\": \"blond\",\n    \"skin_color\": \"fair\",\n    \"eye_color\": \"blue\",\n    \"birth_year\": 1998\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/character/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["character", "add"]
+        }
+      }
+    },
+    {
+      "name": "Delete Character",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/character/delete/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["character", "delete", "1"]
+        }
+      }
+    }
+  ]
+}

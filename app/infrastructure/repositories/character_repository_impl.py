@@ -22,7 +22,7 @@ class SQLAlchemyCharacterRepository(CharacterRepository):
         if existing:
             raise ValueError(f"Character with ID {character.id} already exists.")
 
-        db_char = CharacterDB(**character.dict())
+        db_char = CharacterDB(**character.model_dump())
         self.db.add(db_char)
         self.db.commit()
         return character

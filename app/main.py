@@ -9,4 +9,7 @@ app.include_router(character_router)
 
 @app.get("/")
 def root():
-    return {"message": "API de personajes - en construcción"}
+    return {
+        "message": "Hacé clic en el enlace de abajo o copiá/pegá en tu navegador para ver la documentación de la API.",
+        "docs_url": "http://localhost:8000/docs"
+    }

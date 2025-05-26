@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.domain.entities.character_entity import CharacterEntity
+from app.domain.dtos.character_list_dto import CharacterListDTO
 from app.infrastructure.database import SessionLocal
 from app.infrastructure.repositories.character_repository_impl import SQLAlchemyCharacterRepository
 from app.application.services.character_service_impl import CharacterService
@@ -15,7 +16,7 @@ def get_service():
     return CharacterService(repo)
 
 
-@router.get("/getAll", response_model=list[CharacterEntity])
+@router.get("/getAll", response_model=list[CharacterListDTO])
 def get_all_characters(service: CharacterService = Depends(get_service)):
     return service.get_all()
 

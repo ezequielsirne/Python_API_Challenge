@@ -79,7 +79,17 @@ docker compose up
 ## 🧪 Tests automatizados
 
 ```bash
-pytest
+REM Ejecutar todos los tests con uv (recomendado)
+uv pip install pytest
+uv pytest
+
+REM Ejecutar un archivo específico
+uv pytest tests/test_character_service.py
+uv pytest tests/test_character_endpoints.py
+```
+Si usás **dotenv**, también podés correr los tests así:
+```bash
+dotenv run pytest
 ```
 
 Se ejecutan:

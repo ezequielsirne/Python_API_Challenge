@@ -10,27 +10,36 @@ API REST desarrollada con **FastAPI**, siguiendo los principios de **Clean Archi
 - `uv` (recomendado) o `venv`
 - Docker (opcional para contenedor)
 
----
-
-## ⚙️ Instalación local
-
-### 1. Crear entorno virtual
-
+> Si no tenés instalado `uv`, podés hacerlo así:
+>
 ```bash
-# Recomendado: usando uv
-uv venv .venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
-
-# Alternativa: usando venv estándar
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install uv
 ```
 
 ---
 
-## 🚀 Ejecución local
+## ⚙️ Instalación local (Windows)
+
+### 1. Crear entorno virtual
+
+```bash
+REM Recomendado: usando uv
+uv venv .venv
+.venv\Scripts\activate
+uv pip install -r requirements.txt
+
+REM Alternativa: usando venv estándar
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+> # Para Linux/Mac:
+> # source .venv/bin/activate
+
+---
+
+## 🚀 Ejecución local (Windows)
 
 ```bash
 uvicorn app.main:app --reload
@@ -46,10 +55,10 @@ La API estará disponible en:
 ## 🐳 Ejecución con Docker
 
 ```bash
-# Build
+REM Build
 docker compose build
 
-# Run
+REM Run
 docker compose up
 ```
 
@@ -58,7 +67,6 @@ docker compose up
 ## 🧪 Tests automatizados
 
 ```bash
-# Ejecutar todos los tests
 pytest
 ```
 
@@ -68,7 +76,7 @@ Se ejecutan:
 
 ---
 
-## 🧭 Endpoints disponibles
+## 🧱 Endpoints disponibles
 
 | Método | Ruta                         | Descripción                          |
 |--------|------------------------------|--------------------------------------|
@@ -93,22 +101,32 @@ Importala en Postman para probar fácilmente los endpoints.
 
 ---
 
-## 🧱 Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```text
 app/
-├── api/                   # Routers FastAPI
-├── application/           # Servicios (casos de uso)
-├── domain/                # Entidades y contratos
-│   ├── dto/               # DTOs de entrada/salida
-│   └── services/          # Interfaces de servicio
-├── infrastructure/        # Base de datos, repositorios
-└── main.py                # Punto de entrada
-tests/                     # Tests unitarios e integrados
-postman/                   # Colección Postman
+├── api/
+│   └── character_router.py
+├── application/
+│   ├── repositories/
+│   └── services/
+├── domain/
+│   ├── dtos/
+│   ├── entities/
+│   └── services/
+├── infrastructure/
+│   ├── repositories/
+│   └── database.py
+├── tests/
+│   └── __init__.py
+├── main.py
+postman/
+├── character_api_collection.json
+characters.sqlite3
 Dockerfile
 docker-compose.yml
 requirements.txt
+README.md
 ```
 
 ---
@@ -125,6 +143,16 @@ requirements.txt
 
 ---
 
-## 🧠 Autor
+## 🗒️ Comentarios
 
-Desarrollado por Ezequiel Sirne para challenge técnico.
+Este proyecto aplica **Clean Architecture**, dividiendo la lógica de negocio, la infraestructura y los controladores en capas independientes.
+
+El patrón **Repository** permite abstraer la fuente de datos, haciendo posible cambiar la implementación sin modificar el resto del sistema.
+
+La **inyección de dependencias** con `Depends()` desacopla servicios y controladores, y facilita los tests con objetos simulados.
+
+Las **interfaces en domain** muestran claramente qué operaciones forman parte del negocio sin exponer detalles técnicos.
+
+Además, se usó un **DTO** para limitar los campos devueltos por `/character/getAll`, cumpliendo con el requisito de mostrar datos parciales.
+
+

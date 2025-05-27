@@ -1,6 +1,8 @@
 from pydantic import BaseModel, Field
 
-
+# Entidad de dominio principal que representa un Character.
+# Esta clase utiliza pydantic tanto para validación de entrada (POST)
+# como para estructurar las respuestas completas (GET por ID).
 class CharacterEntity(BaseModel):
     id: int = Field(..., strict=True)
     name: str

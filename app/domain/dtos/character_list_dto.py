@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
-
+# DTO (Data Transfer Object) utilizado para limitar los campos expuestos
+# en la respuesta del endpoint GET /character/getAll.
 class CharacterListDTO(BaseModel):
     id: int
     name: str

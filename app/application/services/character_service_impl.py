@@ -3,7 +3,10 @@ from app.domain.services.character_service_interface import CharacterServiceInte
 from app.application.repositories.character_repository import CharacterRepository
 from typing import List, Optional
 
-
+# Implementación concreta del servicio CharacterService.
+# Esta clase implementa la interfaz definida en domain (CharacterServiceInterface)
+# y orquesta las operaciones de negocio delegando en un repositorio inyectado.
+# De esta forma, encapsula la lógica sin acoplarse a la tecnología de persistencia.
 class CharacterService(CharacterServiceInterface):
     def __init__(self, repository: CharacterRepository):
         self.repository = repository

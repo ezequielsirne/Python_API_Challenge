@@ -4,7 +4,10 @@ from app.infrastructure.database import SessionLocal, CharacterDB
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
-
+# Implementación concreta del repositorio usando SQLAlchemy.
+# Esta clase cumple con la interfaz CharacterRepository, y traduce entre
+# entidades del dominio y objetos de base de datos (ORM).
+# Pertenece a la capa de infrastructure.
 class SQLAlchemyCharacterRepository(CharacterRepository):
     def __init__(self, db_session: Session):
         self.db = db_session

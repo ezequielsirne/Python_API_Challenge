@@ -6,10 +6,12 @@ from app.infrastructure.database import SessionLocal
 from app.infrastructure.repositories.character_repository_impl import SQLAlchemyCharacterRepository
 from app.application.services.character_service_impl import CharacterService
 
+# Este router maneja todas las rutas relacionadas con "character"
 router = APIRouter(prefix="/character", tags=["Character"])
 
 
-# Dependency: crear repo + servicio
+# Función que construye el servicio completo inyectando el repositorio y la sesión de base de datos.
+# Se utiliza como dependencia en cada endpoint para mantener el desacoplamiento y facilitar el testeo.
 def get_service():
     db: Session = SessionLocal()
     repo = SQLAlchemyCharacterRepository(db)
@@ -18,6 +20,7 @@ def get_service():
 
 @router.get("/getAll", response_model=list[CharacterListDTO])
 def get_all_characters(service: CharacterService = Depends(get_service)):
+    # Se inyecta el servicio mediante Depends. FastAPI ejecuta get_service() automáticamente.
     return service.get_all()
 
 

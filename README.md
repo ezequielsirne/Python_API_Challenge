@@ -80,7 +80,6 @@ docker compose up
 
 ```bash
 REM Ejecutar todos los tests con uv (recomendado)
-uv pip install pytest
 uv pytest
 
 REM Ejecutar un archivo específico

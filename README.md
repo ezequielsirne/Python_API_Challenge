@@ -18,17 +18,29 @@ pip install uv
 
 ---
 
+## 📥 Clonar el repositorio
+
+Antes de comenzar con la instalación, cloná este repositorio en tu máquina local:
+```bash
+git clone https://github.com/ezequielsirne/Python_API_Challenge.git
+cd Python_API_Challenge
+```
+
+---
+
 ## ⚙️ Instalación local (Windows)
 
-### 1. Crear entorno virtual
+### Crear entorno virtual
 
 ```bash
-REM Recomendado: usando uv
+pip install uv
 uv venv .venv
 .venv\Scripts\activate
 uv pip install -r requirements.txt
+```
 
-REM Alternativa: usando venv estándar
+> ### Alternativa: usando venv estándar
+```bash
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -67,10 +79,8 @@ La API estará disponible en:
 ## 🐳 Ejecución con Docker
 
 ```bash
-REM Build
 docker compose build
 
-REM Run
 docker compose up
 ```
 
@@ -78,11 +88,13 @@ docker compose up
 
 ## 🧪 Tests automatizados
 
+> Ejecutar todos los tests con uv (recomendado)
 ```bash
-REM Ejecutar todos los tests con uv (recomendado)
 pytest
+```
 
-REM Ejecutar un archivo específico
+> Ejecutar un archivo específico
+```bash
 pytest app/tests/test_character_service.py
 pytest app/tests/test_character_endpoints.py
 ```

@@ -34,8 +34,20 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-> # Para Linux/Mac:
-> # source .venv/bin/activate
+> ### Alternativa para Linux/Mac
+
+```bash
+# Recomendado: usando uv
+uv venv .venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+
+# Alternativa: usando venv estándar
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+```
 
 ---
 

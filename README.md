@@ -164,7 +164,7 @@ README.md
 
 Este proyecto aplica **Clean Architecture**, dividiendo la lógica de negocio, la infraestructura y los controladores en capas independientes.
 
-El patrón **Repository** permite abstraer la fuente de datos, haciendo posible cambiar la implementación sin modificar el resto del sistema.
+Se implementó el patrón **Repository** mediante una interfaz abstracta que define las operaciones básicas de acceso a datos (`get_all`, `get_by_id`, `add`, `delete`). Esta interfaz permite desacoplar la lógica de negocio de la tecnología usada para persistencia, y su implementación concreta en infrastructure puede ser reemplazada sin afectar las capas superiores. Esto mantiene la lógica limpia y centrada en el dominio.
 
 La **inyección de dependencias** con `Depends()` desacopla servicios y controladores, y facilita los tests con objetos simulados.
 

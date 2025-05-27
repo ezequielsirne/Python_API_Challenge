@@ -80,15 +80,11 @@ docker compose up
 
 ```bash
 REM Ejecutar todos los tests con uv (recomendado)
-uv pytest
+pytest
 
 REM Ejecutar un archivo específico
-uv pytest tests/test_character_service.py
-uv pytest tests/test_character_endpoints.py
-```
-Si usás **dotenv**, también podés correr los tests así:
-```bash
-dotenv run pytest
+pytest app/tests/test_character_service.py
+pytest app/tests/test_character_endpoints.py
 ```
 
 Se ejecutan:

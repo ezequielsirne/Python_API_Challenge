@@ -10,12 +10,6 @@ API REST desarrollada con **FastAPI**, siguiendo los principios de **Clean Archi
 - `uv` (recomendado) o `venv`
 - Docker (opcional para contenedor)
 
-> Si no tenés instalado `uv`, podés hacerlo así:
->
-```bash
-pip install uv
-```
-
 ---
 
 ## 📥 Clonar el repositorio
@@ -32,14 +26,20 @@ cd Python_API_Challenge
 
 ### Crear entorno virtual
 
+> Si no tenés instalado `uv`, podés hacerlo así:
+>
 ```bash
 pip install uv
+```
+
+```bash
 uv venv .venv
 .venv\Scripts\activate
 uv pip install -r requirements.txt
 ```
 
 > ### Alternativa: usando venv estándar
+>
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ```
 
 > ### Alternativa para Linux/Mac
-
+>
 ```bash
 # Recomendado: usando uv
 uv venv .venv
